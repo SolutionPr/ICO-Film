@@ -1,0 +1,239 @@
+<!--  New Design -->
+<div class="bf-footer only-das-footer">
+    <app-sub-header></app-sub-header>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="DECENTRALIZED-1">
+                <!-- <img class="Mouse-img1" src="assets/images/star-exe.png" alt=""> -->
+                <p class="DECENTRALIZED-p-1">THE BEST SOLUTION <br>
+                    TO INCREASE YOUR <br>
+                    MATIC COIN (MATIC) COINS
+                    </p>
+                <!-- <img class="Mouse-img" src="assets/images/Mouse.png" alt=""> -->
+            </div>
+        </div>
+        
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+            <p style="color: #fff;margin-bottom: 20px;">Are you looking to diversify your digital asset portfolio? Our platform provides a seamless way to convert your USDT coins into FILM tokens, opening up new opportunities in the world of decentralized entertainment and media.</p>
+            </div>
+        </div>
+        </div>
+<section class="complet-bit">
+    <img class="acc-img-2" src="assets/images/five-img.png" alt="">
+    <div class="container">
+        <div class="row flex-strch">
+            <div class="col-lg-6">
+                <div class="strch-1">
+                    <img class="green-img" src="assets/images/coin-new.png" alt="">
+                    <div class="bor-bottom">
+                        <p class="red-img-right">BUY</p>
+                    </div>
+                    <div class="bottom-shadow"></div>
+                    <div class="buy-flex">
+                        <ul>
+                            <li>
+                                <label for="">COIN</label>
+                                <!-- <input class="input-all" type="text" value="MATIC" readonly> -->
+                                <select class="input-all" [(ngModel)]="typeBuy" (ngModelChange)="buyInputNotifier.next()">
+                                    <option>MATIC</option>
+                                    <option>USDT</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="">Amount</label>
+                                <div class="right-buy">
+                                    <input class="input-all" type="text" placeholder="1" [(ngModel)]="buyInputEth"
+                                    (ngModelChange)="buyInputNotifier.next()">
+                                    <span>{{typeBuy}}</span>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="">Estimated conversion</label>
+                                <div class="right-buy">
+                                    <input class="input-all" type="text" value="{{ formatedBuyEstimation != 0 ? (formatedBuyEstimation | number : '1.0-8') : '' }}" placeholder="0" readonly>
+                                    <span>FILM </span>
+                                </div>
+                            </li>
+                            <li>
+                                <ng-container *ngIf="typeBuy == 'MATIC'">
+                                    <button class="BUY-BT" (click)="buy()">BUY</button>
+                                </ng-container>
+                                <ng-container *ngIf="typeBuy == 'USDT'">
+                                    <button class="BUY-BT" *ngIf="!isUsdtApproved" (click)="approveUSDT()">Approve USDT</button>
+                                    <button class="BUY-BT" *ngIf="isUsdtApproved" (click)="buy()">BUY</button>
+                                </ng-container>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" style="position: relative;">
+                <div class="disable-section">
+                    <div class="coming-soon">Coming Soon...</div>
+        
+                <div class="strch-1">
+                    <img class="red-img" src="assets/images/coin-sell.png" alt="">
+                    <div class="bor-bottom">
+                        <p class="red-img-left">SELL</p>
+                    </div>
+                    <div class="bottom-shadow"></div>
+                    <div class="buy-flex">
+                        <ul>
+                            <li>
+                                <label for="">COIN</label>
+                                <select class="input-all" [(ngModel)]="typeSell" (ngModelChange)="sellInputNotifier.next()">
+                                    <option>MATIC</option>
+                                    <option>USDT</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="">Amount</label>
+                                <div class="right-buy">
+                                    <input class="input-all" type="text" placeholder="Digite um nr…" [(ngModel)]="sellInputEth"
+                                    (ngModelChange)="sellInputNotifier.next()">
+                                    <span>FILM </span>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="">Estimated conversion</label>
+                                <div class="right-buy">
+                                    <input class="input-all" type="text" placeholder="0" value="{{ formatedSellEstimation != 0 ? (formatedSellEstimation | number : '1.0-8') : '' }}" readonly>
+                                    <span>{{typeSell}}</span>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="BUY-BT sell-bt">Sell</button>
+                                <!-- donot remove commented line  -->
+                                <!-- <button class="BUY-BT sell-bt" *ngIf="!isFilmApproved" (click)="approveFILM()">Approve FILM</button>
+                                <button class="BUY-BT sell-bt" *ngIf="isFilmApproved" (click)="sell()">Sell</button> -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-uk">
+            <div class="col-lg-6">
+                <div class="all-same-div">
+                    <div class="top-h">
+                        <p>Contract Balance</p>
+                    </div>
+                    <div class="bottom-shadow"></div>
+                    <div class="path-data-ul">
+                        <ul class="trding-ul">
+                            <li>
+                                <p class="path-data-ul-p">FILM  TOKEN <br> <span class="path-data-ul-p2">(FILM )</span></p>
+                                <p class="path-data-ul-p3">{{walletServices.er25.contactTokenBalanceConverted | number: '1.0-8'}}</p>
+                            </li>
+                            <li class="right-trdp">
+                                <p class="path-data-ul-p">MATIC <br> <span class="path-data-ul-p2">(MATIC)</span></p>
+                                <p class="path-data-ul-p3">{{walletServices.er25.contactMainnetBalanceConverted | number: '1.0-8'}}</p>
+                            </li>
+                            <li class="right-trdp">
+                                <p class="path-data-ul-p">USDT <br> <span class="path-data-ul-p2">(USDT)</span></p>
+                                <p class="path-data-ul-p3">{{walletServices.er25.contactUSDTBalanceConverted | number: '1.0-8'}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="all-same-div">
+                    <div class="top-h">
+                        <p>Your Balance</p>
+                    </div>
+                    <div class="bottom-shadow"></div>
+                    <div class="path-data-ul">
+                        <ul class="trding-ul">
+                            <li>
+                                <p class="path-data-ul-p">FILM  TOKEN <br> <span class="path-data-ul-p2">(FILM )</span></p>
+                                <p class="path-data-ul-p3">{{walletServices.er25.balanceConverted | number: '1.0-8'}}</p>
+                            </li>
+                            <li class="right-trdp">
+                                <p class="path-data-ul-p">MATIC <br> <span class="path-data-ul-p2">(MATIC)</span></p>
+                                <p class="path-data-ul-p3">{{walletServices.er25.mainnetBalanceConverted | number: '1.0-8'}}</p>
+                            </li>
+                            <li class="right-trdp">
+                                <p class="path-data-ul-p">USDT <br> <span class="path-data-ul-p2">(USDT)</span></p>
+                                <p class="path-data-ul-p3">{{walletServices.er25.USDTBalanceConverted | number: '1.0-8'}}</p>
+                            </li>
+                        </ul>
+                        <!-- <button class="WITHDRAWAL-DIVIDENDS" (click)="withdraw()">RETIRAR DIVIDENDOS</button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="all-same-div">
+                    <div class="top-h">
+                        <p>Recent History</p>
+                    </div>
+                    <div class="bottom-shadow"></div>
+                    <div class="path-data-ul">
+                        <div class="table-btc">
+                            <table *ngIf="transHistory.length > 0">
+                                <thead>
+                                    <tr>
+                                        <th>Hash</th>
+                                        <th>Type</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Value</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let tran of transHistory" class="{{tran.txnType}}">
+                                        <td>
+                                            <a href="{{tran.txnLink}}" target="_blank">{{tran.blockHash}}</a>
+                                        </td>
+                                        <td class="type">{{tran.txnType}}</td>
+                                        <td>{{tran.from}}</td>
+                                        <td>{{tran.to}}</td>
+                                        <td>{{tran.etherValue}} MATIC</td>
+                                        <td>{{tran.timeStamp}}</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table *ngIf="transHistory.length == 0">
+                                <tr>
+                                    <!-- <td><span class="bk-green"></span></td> -->
+                                    <td colspan="5"  class="text-center">
+                                        <p class="tbl-pera">No Record Found</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <app-footer></app-footer>
+</div>
+
+<div *ngIf="showModal" class="dialog-container">
+    <div class="connect-wallet">
+        <div class="col-10 d-flex justify-content-end" *ngIf="modalData.for != 'loader'">
+            <button routerLink="/" class="modal-close-btn"><span>&times;</span></button>
+        </div>
+        <h2 *ngIf="modalData.for != 'loader'">{{modalData.title}}</h2>
+        <div class="dialog-body-container">
+            <div class="d-flex justify-content-center" *ngIf="modalData.for == 'loader'">
+                <div class="spinner-border mb-2 text-light" role="status" style="height: 50px; width: 50px;">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <p class="dialog-body" [class.text-center]="modalData.for == 'loader'">{{modalData.body}}</p>
+        </div>
+        <div class="dialog-footer" *ngIf="modalData.for == 'wallet'">
+            <button (click)="connectWallet()" class="dialog-btn">Connect Wallet</button>
+        </div>
+    </div>
+</div>

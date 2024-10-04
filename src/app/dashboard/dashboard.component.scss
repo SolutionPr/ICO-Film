@@ -1,0 +1,52 @@
+.ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.disable-section{
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  .coming-soon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 2em;
+    text-align: center;
+  }
+   tr{
+    &.Sell {
+      td.type{
+        color: red!important;
+      }
+    }
+    &.Buy {
+      td.type{
+        color: rgb(27, 148, 27)!important;
+      }
+    }
+    th{
+        color: #fff;
+        max-width: 130px !important;
+        padding: 0 20px;
+    }
+   
+  }
+  .table-btc tr td {
+    border-bottom: 1px solid #3f476b;
+    padding: 15px 14px !important;
+    color: #fff;
+    max-width: 70px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tbl-pera{
+  max-width: 100% !important;
+}

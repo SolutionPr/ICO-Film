@@ -1,0 +1,14 @@
+<div class="connect-wallet">
+    <h1 mat-dialog-title *ngIf="modalData.for != 'loader'">{{modalData.title}}</h1>
+    <div mat-dialog-content>
+        <div class="d-flex justify-content-center" *ngIf="modalData.for == 'loader'">
+            <div class="spinner-border mb-2" role="status" style="height: 50px; width: 50px;">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <p class="dialog-body" [class.text-center]="modalData.for == 'loader'">{{modalData.body}}</p>
+    </div>
+    <div mat-dialog-actions class="dialog-footer" *ngIf="modalData.for == 'wallet'">
+        <button (click)="connectWallet()" class="dialog-btn">Connect Wallet</button>
+    </div>
+</div>
