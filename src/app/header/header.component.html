@@ -1,0 +1,35 @@
+<section class="header-custom">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="/">
+                <img src="assets/images/app-logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- <li class="nav-item pointer" routerLink="/">
+                        <a class="nav-link" aria-current="page" [routerLinkActiveOptions]="{exact:
+                            true}" routerLinkActive="active">HOME</a>
+                    </li> -->
+                    <!-- <li class="nav-item pointer" routerLink="/buy-sell">
+                        <a class="nav-link" [routerLinkActiveOptions]="{exact:
+                            true}" routerLinkActive="active">EXCHANGE</a>
+                    </li> -->
+                </ul>
+                <div class="right-bt">
+                    <button class="Docs-bt" *ngIf="!walletAddress" (click)="connectWallets()">
+                        <img src="assets/images/meta_mask.png" style="width: 25px;margin: 0 4px 4px -4px;">
+                        Connect Wallet
+                    </button>
+                    <button class="Docs-bt" *ngIf="walletAddress" (click)="connectWallets()">
+                        <span>{{walletAddress}}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>

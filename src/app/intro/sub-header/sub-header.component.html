@@ -1,0 +1,51 @@
+<section class="complet-bit">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" *ngIf="!['/'].includes(currentRoute)">
+                <div class="flex-complet-ul">
+                    <ul class="flex-complet-ul-1">
+                        <li class="pointer" routerLink="/buy-sell" [routerLinkActiveOptions]="{exact:
+                            true}" routerLinkActive="active">
+                            <p class="flex-complet-ul-1-p">EXCHANGE</p>
+                            <p class="flex-complet-ul-1-p-1">Comprar e Vender</p>
+                        </li>
+                        <li class="pointer" routerLink="/tutorial" [routerLinkActiveOptions]="{exact:
+                            true}" routerLinkActive="active">
+                            <p class="flex-complet-ul-1-p">TUTORIAIS</p>
+                            <p class="flex-complet-ul-1-p-1">Aprende como negociar</p>
+                        </li>
+                        <li class="pointer">
+                            <p class="flex-complet-ul-1-p">TELEGRAM</p>
+                            <p class="flex-complet-ul-1-p-1">Social Group</p>
+                        </li>
+                        <li>
+                            <p class="flex-complet-ul-1-p">MATIC <img src="{{apiServices.bnbDetails?.EUR.CHANGEPCT24HOUR.includes('-') ? 'assets/images/arrow-down.png': 'assets/images/arrow-top.png'}}" alt=""></p>
+                            <p class="flex-complet-ul-1-p-1">{{apiServices.bnbDetails?.EUR.PRICE}} 
+                                <span [class.media-bitcoin-p-3-red]="apiServices.bnbDetails?.EUR.CHANGEPCT24HOUR.includes('-')">{{!apiServices.bnbDetails?.EUR.CHANGEPCT24HOUR.includes('-') ? '+' : ' '}} {{apiServices.bnbDetails?.EUR.CHANGE24HOUR.split(' ')[1]}} ({{apiServices.bnbDetails?.EUR.CHANGEPCT24HOUR}}%)</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="flex-complet-ul-1-p">BTC <img src="{{apiServices.btcDetails?.EUR.CHANGEPCT24HOUR.includes('-') ? 'assets/images/arrow-down.png': 'assets/images/arrow-top.png'}}" alt=""></p>
+                            <p class="flex-complet-ul-1-p-1">{{apiServices.btcDetails?.EUR.PRICE}} 
+                                <span [class.media-bitcoin-p-3-red]="apiServices.btcDetails?.EUR.CHANGEPCT24HOUR.includes('-')">{{!apiServices.btcDetails?.EUR.CHANGEPCT24HOUR.includes('-') ? '+' : ' '}} {{apiServices.btcDetails?.EUR.CHANGE24HOUR.split(' ')[1]}} ({{apiServices.btcDetails?.EUR.CHANGEPCT24HOUR}}%)</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="flex-complet-ul-1-p">FILM TOKEN<img src="{{apiServices.bnbDetails?.EUR.CHANGEPCT24HOUR.includes('-') ? 'assets/images/arrow-down.png': 'assets/images/arrow-top.png'}}" alt=""> </p>
+                            <p class="flex-complet-ul-1-p-1">€ {{apiServices.bnbDetails?.EUR.priceNew * walletService.er25.buyPriceConverted | number : '1.0-6' }} 
+                                <span [class.media-bitcoin-p-3-red]="apiServices.bnbDetails?.EUR.CHANGEPCT24HOUR.includes('-')">
+                                    {{!apiServices.bnbDetails?.EUR.CHANGEPCT24HOUR.includes('-') ? '+' : ' '}} {{apiServices.bnbDetails?.EUR.change24New * walletService.er25.buyPriceConverted | number : '1.0-6'}} ({{apiServices.bnbDetails?.EUR.CHANGEPCT24HOUR}}%)
+                                </span>
+                                </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="col-lg-12">
+                <div class="DECENTRALIZED">
+                   <p class="DECENTRALIZED-p">AUMENTA AS TUAS MATIC COINS</p>
+                </div>
+           </div> -->
+        </div>
+    </div>
+</section>
